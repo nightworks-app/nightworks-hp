@@ -296,18 +296,7 @@ header.scrolled .nav-item:hover {
     box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
 }
 
-header.scrolled .login {
-    background-color: white;
-    color: #00008b;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
 .login:hover {
-    background-color: #cccccc;
-    color: #00008b;
-}
-
-header.scrolled .login:hover {
     background-color: #cccccc;
     color: #00008b;
 }
@@ -325,7 +314,7 @@ header.scrolled .login:hover {
     display: block;
     width: 25px;
     height: 3px;
-    margin: 5px 0;
+    margin: 6px 0;
     position: relative;
     background-color: white;
     transition: all 0.3s ease-in-out;
@@ -336,7 +325,7 @@ header.scrolled .hamburger span {
 }
 
 .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: translateY(9px) rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -344,10 +333,19 @@ header.scrolled .hamburger span {
 }
 
 .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 @media screen and (max-width: 959px) {
+    header {
+        background-color: #00008b;
+        box-shadow: 0 3px 12px rgba(0, 0, 139, 0.3);
+    }
+
+    .headerContents {
+        padding: 0 20px;
+    }
+
     .hamburger {
         display: block;
     }
@@ -375,7 +373,8 @@ header.scrolled .hamburger span {
         margin: 0.5rem 0;
         font-size: 1.2rem;
         padding: 0.5rem 0;
-        border-bottom: 1px solid #e0e0e0;
+        border-bottom: 1px solid lightgray;
+        color: #00008b;
     }
 
     .nav-item::after {
@@ -387,9 +386,20 @@ header.scrolled .hamburger span {
         font-weight: bold;
     }
 
+    header.scrolled .nav-item {
+        color: #00008b;
+    }
+
+    header.scrolled .nav-item.current {
+        color: #fed700;
+        font-weight: bold;
+    }
+
     .login {
         margin-top: 1rem;
         text-align: center;
+        background-color: #00008b;
+        color: white;
     }
 }
 
@@ -411,7 +421,7 @@ header.scrolled .hamburger span {
 .hero-content {
     position: absolute;
     left: 0;
-    top: 140px;
+    top: 180px;
     bottom: 140px;
     width: 50%;
     display: flex;
@@ -438,29 +448,32 @@ header.scrolled .hamburger span {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    animation: fadeInUp 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
 }
 
 .hero-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 5px;
     background-color: #fff;
     color: #00008b;
-    padding: 10px 18px;
+    padding: 8px 12px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 12px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     white-space: nowrap;
     flex: 0 0 auto;
-    min-width: 180px;
+    min-width: 130px;
 }
 
 .hero-button i {
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .hero-button:hover {
@@ -586,11 +599,14 @@ header.scrolled .hamburger span {
     #top {
         height: auto;
         min-height: 100vh;
-        background-image: url('../img/nighter/hero_pc.jpg');
+        background-image: url('../img/nighter/hero_sp.jpg');
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-        padding: 100px 0;
+        padding: 100px 0 120px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
     }
 
     .hero-content {
@@ -607,22 +623,24 @@ header.scrolled .hamburger span {
     }
 
     .hero-title img {
-        width: 60%;
-        max-width: 300px;
+        width: 90%;
+        max-width: 450px;
     }
 
     .hero-buttons {
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 0;
+        flex-direction: row;
+        gap: 10px;
+        margin: 0 auto;
+        width: 80%;
+        max-width: 360px;
     }
 
     .hero-button {
-        width: 100%;
-        max-width: 100%;
+        flex: 1;
         justify-content: center;
-        padding: 10px 18px;
+        padding: 10px 16px;
         font-size: 14px;
+        min-width: auto;
     }
 
     .hero-button i {
@@ -686,7 +704,7 @@ section h2::after {
 /* プレースホルダー共通スタイル */
 .image-placeholder {
     background: rgba(0,0,139,0.1);
-    border: 3px dashed rgba(0,0,139,0.3);
+    /* border: 3px dashed rgba(0,0,139,0.3); */
     border-radius: 12px;
     min-width: 280px;
     min-height: 280px;
@@ -762,7 +780,7 @@ section h2::after {
 
 #features .image-placeholder {
     background: transparent;
-    border: 3px solid rgba(0,0,139,0.3);
+    border: 3px solid #00008b;
     box-shadow: none;
 }
 
@@ -773,8 +791,9 @@ section h2::after {
 
 #features .image-placeholder p {
     font-size: 32px;
-    border-top: 2px solid rgba(0,0,139,0.3);
+    border-top: 2px solid #00008b;
     padding-top: 10px;
+    padding-bottom: 10px;
     margin-top: 20px;
     margin-bottom: auto;
     width: 100%;
@@ -782,7 +801,7 @@ section h2::after {
 }
 
 #features .scroll-container {
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 /* 仕事例セクション */
@@ -806,7 +825,7 @@ section h2::after {
 
 #examples .image-placeholder {
     background: transparent;
-    border: 3px solid rgba(255,255,255,0.3);
+    border: 3px solid #fff;
     box-shadow: none;
     width: 280px;
     flex-shrink: 0;
@@ -832,8 +851,9 @@ section h2::after {
 #examples .image-placeholder p {
     color: white;
     font-size: 32px;
-    border-top: 2px solid rgba(255,255,255,0.3);
+    border-top: 2px solid #fff;
     padding-top: 10px;
+    padding-bottom: 10px;
     margin-top: 0;
     margin-bottom: auto;
     width: 100%;
@@ -842,7 +862,7 @@ section h2::after {
 }
 
 #examples .scroll-container {
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 /* 利用方法セクション */
@@ -974,6 +994,15 @@ section h2::after {
     .image-placeholder-step {
         width: 100%;
         min-height: 150px;
+        order: 2;
+    }
+
+    .image-placeholder-step img {
+        width: 50%;
+    }
+
+    .howtoStep > div:not(.image-placeholder-step) {
+        order: 1;
     }
 }
 
