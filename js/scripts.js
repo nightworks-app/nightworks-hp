@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const headerHeight = 80; // ヘッダーの高さ
+    const headerHeight = 60; // ヘッダーの高さ
     const navItems = document.querySelectorAll('.nav-item');
     const sections = document.querySelectorAll('section');
     const header = document.querySelector('header');
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // スクロールアニメーション（Intersection Observer）- 最適化版
     const observerOptions = {
         threshold: 0.15, // 0.1 → 0.15 に変更（トリガー回数削減）
-        rootMargin: '0px 0px -80px 0px' // マージンを調整
+        rootMargin: '0px 0px -60px 0px' // マージンを調整
     };
 
     const observer = new IntersectionObserver((entries) => {
